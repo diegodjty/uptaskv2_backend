@@ -38,10 +38,10 @@ const authenticate = async (req, res) => {
   }
 
   // Check if user is confirmed
-  if (!user.confirmed) {
-    const error = new Error('Your account is not confirmed');
-    return res.status(400).json({ msg: error.message });
-  }
+  // if (!user.confirmed) {
+  //   const error = new Error('Your account is not confirmed');
+  //   return res.status(400).json({ msg: error.message });
+  // }
 
   // Check if password is correct
   if (await user.checkPassword(password)) {
