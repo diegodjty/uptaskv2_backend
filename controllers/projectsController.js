@@ -19,7 +19,6 @@ const newProject = async (req, res) => {
     const savedProject = await project.save();
     res.json(savedProject);
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -54,7 +53,6 @@ const editProject = async (req, res) => {
     const savedProject = await project.save();
     res.json(savedProject);
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -68,7 +66,6 @@ const deleteProject = async (req, res) => {
     await project.deleteOne();
     res.json({ msg: 'Project Eliminated' });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -79,7 +76,6 @@ const addCollaborator = async (req, res) => {
     const error = new Error('Project not found');
     return res.status(404).json({ msg: error.message });
   }
-  console.log(project.creator.toString(), '---', req.user._id.toString());
   if (project.creator.toString() !== req.user._id.toString()) {
     const error = new Error('Not Valid Action');
     return res.status(404).json({ msg: error.message });

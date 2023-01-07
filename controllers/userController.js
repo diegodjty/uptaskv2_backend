@@ -22,7 +22,6 @@ const createUser = async (req, res) => {
         msg: 'User Created succesfully, Check your email for more instructions',
       });
     } catch (error) {
-      console.log(error);
     }
   }
 };
@@ -72,7 +71,6 @@ const confirm = async (req, res) => {
     await confirmUser.save();
     res.json({ msg: 'user confirmed' });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -94,7 +92,6 @@ const forgotPassword = async (req, res) => {
     });
     res.json({ msg: 'Message sent to email' });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -123,7 +120,6 @@ const newPassword = async (req, res) => {
       await user.save();
       res.json({ msg: 'Password changed correctly' });
     } catch (error) {
-      console.log(error);
     }
   } else {
     const error = new Error('Token not valid');

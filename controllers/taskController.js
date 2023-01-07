@@ -21,7 +21,6 @@ const addTask = async (req, res) => {
     await projectExist.save();
     return res.json(savedTask);
   } catch (error) {
-    console.log(error);
   }
 };
 const getTask = async (req, res) => {
@@ -66,7 +65,6 @@ const updateTask = async (req, res) => {
     const savedTask = await task.save();
     res.json(savedTask);
   } catch (error) {
-    console.log(error);
   }
 };
 const deleteTask = async (req, res) => {
@@ -94,7 +92,6 @@ const deleteTask = async (req, res) => {
     await Promise.allSettled([await project.save(), await task.deleteOne()]);
     res.json({ msg: 'Task Deleted' });
   } catch (error) {
-    console.log(error);
   }
 };
 const changeStatus = async (req, res) => {
