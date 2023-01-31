@@ -12,20 +12,20 @@ app.use(express.json());
 dotenv.config();
 connectDB();
 
-const whiteList = [process.env.CLIENT_URL];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whiteList.indexOf(origin) !== -1) {
-      // Can accesss the api
-      callback(null, true);
-    } else {
-      // Cannot access the api
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
+// const whiteList = [process.env.CLIENT_URL,process.env.CLIENT_URL_2];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whiteList.indexOf(origin) !== -1) {
+//       // Can accesss the api
+//       callback(null, true);
+//     } else {
+//       // Cannot access the api
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(
   bodyParser.urlencoded({
